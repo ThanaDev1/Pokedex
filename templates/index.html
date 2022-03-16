@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main>
+        <section>
+            <article>
+                <div>
+                    <form method="post" action="/">
+                        <input type="text" name="busqueda" placeholder="Introduce el nombre o numero del pokemon"> 
+                        <input type="submit" value="Buscar">
+                    </form> <br>
+                    <spam class="uno">Nombre: {{ nombre }}&nbsp;&nbsp;&nbsp;&nbsp;Numero: {{ id }}</spam> <br>
+                    <img src="{{ imagen }}" class="pokeimg">
+                    <div>
+                        <h3>Estadisticas en nivel 1</h3>
+                        {% for key,value in estadisticas.items() %}
+                        <p>{{ key }} : {{  value }}</p>
+                        {% endfor %}
+                        <h4>Tipos</h4>
+                        <ol>
+                            {% for tipo in tipos %}
+                            <li>
+                                <span id="tipos">{{ tipo }}</span>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
